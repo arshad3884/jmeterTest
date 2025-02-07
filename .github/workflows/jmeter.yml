@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest  # Use a Linux runner
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3  # Get repo code
+        uses: actions/checkout@v4  # Get repo code
 
       - name: Install JMeter
         run: |
@@ -22,6 +22,7 @@ jobs:
 
       - name: Run JMeter Tests
         run: |
+	  ls -l data/  # Check if CSV file is available
           jmeter -n -t tests/Syma-Creators.jmx -l results.jtl -e -o report/
 
       - name: Upload JMeter Results
