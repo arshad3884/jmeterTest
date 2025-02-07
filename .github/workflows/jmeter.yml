@@ -25,13 +25,13 @@ jobs:
           jmeter -n -t tests/Syma-Creators.jmx -l results.jtl -e -o report/
 
       - name: Upload JMeter Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jmeter-results
           path: results.jtl
 
       - name: Upload JMeter Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jmeter-report
           path: report/
