@@ -1,12 +1,13 @@
 name: Run JMeter Performance Test
 
-on:  
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on:
+  workflow_dispatch:  
+  # push:
+    # branches:
+      # - main
+  # pull_request:
+    # branches:
+      # - main
 
 jobs:
   jmeter-test:
@@ -30,15 +31,15 @@ jobs:
 
       - name: Run JMeter Tests
         run: |
-          /opt/jmeter/bin/jmeter -n -t tests/Syma-Creators.jmx -l data/5000.csv -Jjmeter.save.saveservice.output_format=csv --addprop /dev/null
+          /opt/jmeter/bin/jmeter -n -t tests/Syma-Creators.jmx -l data/csvOutput.csv -Jjmeter.save.saveservice.output_format=csv --addprop /dev/null
 
       - name: Debug JMeter Output
         run: |
           ls -l data/
-          cat data/5000.csv || echo "CSV file is empty!"
+          cat data/csvOutput.csv || echo "CSV file is empty!"
 
       - name: Upload JMeter CSV Results
         uses: actions/upload-artifact@v4
         with:
           name: jmeter-results
-          path: data/5000.csv
+          path: data/csvOutput.csv
