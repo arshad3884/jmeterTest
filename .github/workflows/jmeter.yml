@@ -31,6 +31,7 @@ jobs:
 
       - name: Run JMeter Tests
         run: |
+          export JVM_ARGS="-Xms2g -Xmx8g"
           /opt/jmeter/bin/jmeter -n -t tests/Syma-Creators.jmx -l data/csvOutput.csv -Jjmeter.save.saveservice.output_format=csv --addprop /dev/null
 
       - name: Debug JMeter Output
