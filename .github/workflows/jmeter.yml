@@ -18,7 +18,11 @@ jobs:
       - name: Install JMeter
         run: |
           sudo apt update
-          sudo apt install -y jmeter
+          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz
+          tar -xvzf apache-jmeter-5.5.tgz
+          sudo mv apache-jmeter-5.5 /opt/jmeter
+          echo "export PATH=\$PATH:/opt/jmeter/bin" >> ~/.bashrc
+          source ~/.bashrc
 
       - name: Run JMeter Tests
         run: |
