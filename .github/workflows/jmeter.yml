@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # Ensure repo is checked out
+        uses: actions/checkout@v4  
 
-      - name: Install JMeter
+      - name: Install JMeter (Manual)
         run: |
           sudo apt update
           wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.5.tgz
@@ -24,19 +24,21 @@ jobs:
           echo "export PATH=\$PATH:/opt/jmeter/bin" >> ~/.bashrc
           source ~/.bashrc
 
+      - name: Configure JMeter Security Settings
+        run: |
+          echo "xstream.whitelist=org.apache.jmeter.save.ScriptWrapper" | sudo tee -a /opt/jmeter/bin/jmeter.properties
+
       - name: Run JMeter Tests
         run: |
-          ls -l data/  # Check if CSV file is available
-          jmeter -n -t tests/Syma-Creators.jmx -l data/5000.csv -Jjmeter.save.saveservice.output_format=csv --addprop /dev/null
+          /opt/jmeter/bin/jmeter -n -t tests/Syma-Creators.jmx -l data/5000.csv -Jjmeter.save.saveservice.output_format=csv --addprop /dev/null
 
-      - name: Upload JMeter Results
+      - name: Debug JMeter Output
+        run: |
+          ls -l data/
+          cat data/5000.csv || echo "CSV file is empty!"
+
+      - name: Upload JMeter CSV Results
         uses: actions/upload-artifact@v4
         with:
           name: jmeter-results
-          path: results.jtl
-
-      - name: Upload JMeter Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: jmeter-report
-          path: report/
+          path: data/5000.csv
