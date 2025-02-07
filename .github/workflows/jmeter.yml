@@ -23,7 +23,7 @@ jobs:
       - name: Run JMeter Tests
         run: |
           ls -l data/  # Check if CSV file is available
-          jmeter -n -t tests/Syma-Creators.jmx -l results.jtl
+          jmeter -n -t tests/Syma-Creators.jmx -l data/5000.csv -Jjmeter.save.saveservice.output_format=csv --addprop /dev/null
 
       - name: Upload JMeter Results
         uses: actions/upload-artifact@v4
