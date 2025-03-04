@@ -32,7 +32,7 @@ jobs:
       - name: Run JMeter Tests
         run: |
           export JVM_ARGS="-Xms2g -Xmx8g"
-          /opt/jmeter/bin/jmeter -n -t tests/E-engage.jmx -l data/csvOutput.csv -Jjmeter.save.saveservice.output_format=csv --addprop /dev/null
+          /opt/jmeter/bin/jmeter -n -t tests/topposa.jmx -l data/csvOutput.csv -Jjmeter.save.saveservice.output_format=csv --addprop /dev/null
 
       - name: Debug JMeter Output
         run: |
