@@ -29,18 +29,23 @@ jobs:
         run: |
           echo "xstream.whitelist=org.apache.jmeter.save.ScriptWrapper" | sudo tee -a /opt/jmeter/bin/jmeter.properties
 
-      - name: Run JMeter Tests
+      - name: Run JMeter Tests and Generate HTML Report
         run: |
           export JVM_ARGS="-Xms2g -Xmx8g"
-          /opt/jmeter/bin/jmeter -n -t tests/CmoreLogin.jmx -l data/csvOutput.csv -Jjmeter.save.saveservice.output_format=csv --addprop /dev/null
-
-      - name: Debug JMeter Output
-        run: |
-          ls -l data/
-          cat data/csvOutput.csv || echo "CSV file is empty!"
+          /opt/jmeter/bin/jmeter -n \
+            -t tests/CmoreLogin.jmx \
+            -l data/csvOutput.csv \
+            -e -o reports/html \
+            -Jjmeter.save.saveservice.output_format=csv
 
       - name: Upload JMeter CSV Results
         uses: actions/upload-artifact@v4
         with:
-          name: jmeter-results
+          name: jmeter-csv-results
           path: data/csvOutput.csv
+
+      - name: Upload JMeter HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jmeter-html-report
+          path: reports/html
