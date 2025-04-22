@@ -31,12 +31,13 @@ jobs:
 
       - name: Run JMeter Tests and Generate HTML Report
         run: |
+          mkdir -p reports/html
           export JVM_ARGS="-Xms2g -Xmx8g"
           /opt/jmeter/bin/jmeter -n \
-            -t tests/CmoreLogin.jmx \
-            -l data/csvOutput.csv \
-            -e -o reports/html \
-            -Jjmeter.save.saveservice.output_format=csv
+          -t tests/CmoreLogin.jmx \
+          -l data/csvOutput.csv \
+          -e -o reports/html \
+          -Jjmeter.save.saveservice.output_format=csv
 
       - name: Upload JMeter CSV Results
         uses: actions/upload-artifact@v4
