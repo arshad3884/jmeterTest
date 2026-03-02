@@ -1,0 +1,2474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="host" elementType="Argument">
+            <stringProp name="Argument.name">host</stringProp>
+            <stringProp name="Argument.value">https://app.test.qfact.nl</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="scheme" elementType="Argument">
+            <stringProp name="Argument.name">scheme</stringProp>
+            <stringProp name="Argument.value">https</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <stringProp name="HTTPSampler.domain">https://app.test.qfact.nl</stringProp>
+        <stringProp name="HTTPSampler.protocol">https</stringProp>
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.implementation"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
+        <intProp name="ThreadGroup.num_threads">100</intProp>
+        <intProp name="ThreadGroup.ramp_time">20</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller" enabled="true"/>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="LoginPage" enabled="true">
+              <stringProp name="HTTPSampler.domain">app.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/login</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">navigate</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">none</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-User" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-User</stringProp>
+                    <stringProp name="Header.value">?1</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=0, i</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
+                    <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                    <stringProp name="Header.value">1</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">document</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="LoginRequest" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;Login&quot;,&quot;variables&quot;:{&quot;email&quot;:&quot;t.timmer@timmer.qfact&quot;,&quot;password&quot;:&quot;Test123!&quot;},&quot;query&quot;:&quot;mutation Login($email: String!, $password: String!) {\n  user_login(email: $email, password: $password) {\n    jwt\n    refreshToken\n    twofactorRequired\n    twofactorQRcode\n    user {\n      id\n      firstName\n      lastName\n      email\n      status\n      avatar\n      phone\n      changeEmail\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">Login</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">mutation Login($email: String!, $password: String!) {
+  user_login(email: $email, password: $password) {
+    jwt
+    refreshToken
+    twofactorRequired
+    twofactorQRcode
+    user {
+      id
+      firstName
+      lastName
+      email
+      status
+      avatar
+      phone
+      changeEmail
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;email&quot;:&quot;t.timmer@timmer.qfact&quot;,&quot;password&quot;:&quot;Test123!&quot;}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=0</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="ProjectsPage" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getUser" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;getUser&quot;,&quot;variables&quot;:{&quot;id&quot;:&quot;7dd35f84-8f44-4ebc-b0aa-70c99b0300c8&quot;},&quot;query&quot;:&quot;query getUser($id: String!) {\n  user(id: $id) {\n    id\n    firstName\n    lastName\n    email\n    status\n    avatar\n    phone\n    changeEmail\n    organisations {\n      organisationId\n      roleId\n      status\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">getUser</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query getUser($id: String!) {
+  user(id: $id) {
+    id
+    firstName
+    lastName
+    email
+    status
+    avatar
+    phone
+    changeEmail
+    organisations {
+      organisationId
+      roleId
+      status
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;id&quot;:&quot;7dd35f84-8f44-4ebc-b0aa-70c99b0300c8&quot;}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Organisation" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;Organisation&quot;,&quot;variables&quot;:{&quot;organisationId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},&quot;query&quot;:&quot;query Organisation($organisationId: String!) {\n  organisation(id: $organisationId) {\n    id\n    name\n    logo\n    type\n    address {\n      line1\n      line2\n      zip\n      city\n      country\n      __typename\n    }\n    status\n    phones {\n      phone\n      name\n      main\n      __typename\n    }\n    legal {\n      name\n      country\n      branchId\n      registrationId\n      __typename\n    }\n    products {\n      name\n      slug\n      enabled\n      modules\n      settings\n      __typename\n    }\n    users {\n      status\n      userId\n      roleId\n      role {\n        id\n        name\n        __typename\n      }\n      email\n      user {\n        id\n        email\n        firstName\n        lastName\n        avatar\n        __typename\n      }\n      __typename\n    }\n    childs {\n      id\n      name\n      type\n      address {\n        line1\n        line2\n        zip\n        city\n        country\n        __typename\n      }\n      legal {\n        registrationId\n        branchId\n        __typename\n      }\n      __typename\n    }\n    servicesAverage\n    worksAverage\n    mainConfigurationId\n    settings {\n      projectConfigurations\n      sso {\n        enabled\n        ssoRequired\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">Organisation</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query Organisation($organisationId: String!) {
+  organisation(id: $organisationId) {
+    id
+    name
+    logo
+    type
+    address {
+      line1
+      line2
+      zip
+      city
+      country
+      __typename
+    }
+    status
+    phones {
+      phone
+      name
+      main
+      __typename
+    }
+    legal {
+      name
+      country
+      branchId
+      registrationId
+      __typename
+    }
+    products {
+      name
+      slug
+      enabled
+      modules
+      settings
+      __typename
+    }
+    users {
+      status
+      userId
+      roleId
+      role {
+        id
+        name
+        __typename
+      }
+      email
+      user {
+        id
+        email
+        firstName
+        lastName
+        avatar
+        __typename
+      }
+      __typename
+    }
+    childs {
+      id
+      name
+      type
+      address {
+        line1
+        line2
+        zip
+        city
+        country
+        __typename
+      }
+      legal {
+        registrationId
+        branchId
+        __typename
+      }
+      __typename
+    }
+    servicesAverage
+    worksAverage
+    mainConfigurationId
+    settings {
+      projectConfigurations
+      sso {
+        enabled
+        ssoRequired
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;organisationId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getProjectsMinimal" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;getProjectsMinimal&quot;,&quot;variables&quot;:{&quot;first&quot;:1,&quot;where&quot;:{}},&quot;query&quot;:&quot;query getProjectsMinimal($where: JSON, $sort: [String], $first: Int, $skip: Int, $caseSensitive: Boolean) {\n  projects(\n    where: $where\n    sort: $sort\n    first: $first\n    skip: $skip\n    caseSensitive: $caseSensitive\n  ) {\n    id\n    name\n    clientProjectName\n    contractorProjectName\n    clientId\n    contractorId\n    status\n    clientStatus\n    contractorStatus\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">getProjectsMinimal</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query getProjectsMinimal($where: JSON, $sort: [String], $first: Int, $skip: Int, $caseSensitive: Boolean) {
+  projects(
+    where: $where
+    sort: $sort
+    first: $first
+    skip: $skip
+    caseSensitive: $caseSensitive
+  ) {
+    id
+    name
+    clientProjectName
+    contractorProjectName
+    clientId
+    contractorId
+    status
+    clientStatus
+    contractorStatus
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;first&quot;:1,&quot;where&quot;:{}}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="OrganisationUsersMinimal" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;OrganisationUsersMinimal&quot;,&quot;variables&quot;:{&quot;organisationId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},&quot;query&quot;:&quot;query OrganisationUsersMinimal($organisationId: String!) {\n  organisation(id: $organisationId) {\n    id\n    users {\n      userId\n      roleId\n      role {\n        name\n        __typename\n      }\n      status\n      email\n      twofactorEnabled\n      __typename\n    }\n    settings {\n      login {\n        twofactor\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">OrganisationUsersMinimal</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query OrganisationUsersMinimal($organisationId: String!) {
+  organisation(id: $organisationId) {
+    id
+    users {
+      userId
+      roleId
+      role {
+        name
+        __typename
+      }
+      status
+      email
+      twofactorEnabled
+      __typename
+    }
+    settings {
+      login {
+        twofactor
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;organisationId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Reports" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;Reports&quot;,&quot;variables&quot;:{&quot;where&quot;:{&quot;users__some&quot;:{&quot;userId&quot;:&quot;7dd35f84-8f44-4ebc-b0aa-70c99b0300c8&quot;}}},&quot;query&quot;:&quot;query Reports($where: JSON, $first: Int, $skip: Int, $sort: [String], $caseSensitive: Boolean) {\n  reports(\n    where: $where\n    first: $first\n    skip: $skip\n    sort: $sort\n    caseSensitive: $caseSensitive\n  ) {\n    id\n    name\n    roles {\n      role\n      permissions\n      __typename\n    }\n    users {\n      user {\n        id\n        firstName\n        lastName\n        avatar\n        __typename\n      }\n      permissions\n      __typename\n    }\n    owners {\n      firstName\n      lastName\n      __typename\n    }\n    configuration\n    lastUpdated\n    isFormTemplateResultset\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">Reports</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query Reports($where: JSON, $first: Int, $skip: Int, $sort: [String], $caseSensitive: Boolean) {
+  reports(
+    where: $where
+    first: $first
+    skip: $skip
+    sort: $sort
+    caseSensitive: $caseSensitive
+  ) {
+    id
+    name
+    roles {
+      role
+      permissions
+      __typename
+    }
+    users {
+      user {
+        id
+        firstName
+        lastName
+        avatar
+        __typename
+      }
+      permissions
+      __typename
+    }
+    owners {
+      firstName
+      lastName
+      __typename
+    }
+    configuration
+    lastUpdated
+    isFormTemplateResultset
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;where&quot;:{&quot;users__some&quot;:{&quot;userId&quot;:&quot;7dd35f84-8f44-4ebc-b0aa-70c99b0300c8&quot;}}}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="org_mine" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;org_mine&quot;,&quot;variables&quot;:{},&quot;query&quot;:&quot;query org_mine {\n  org_mine {\n    id\n    type\n    logo\n    name\n    status\n    legal {\n      registrationId\n      __typename\n    }\n    address {\n      city\n      line1\n      line2\n      __typename\n    }\n    users {\n      userId\n      status\n      role {\n        name\n        __typename\n      }\n      __typename\n    }\n    products {\n      slug\n      enabled\n      __typename\n    }\n    hasBranches\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">org_mine</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query org_mine {
+  org_mine {
+    id
+    type
+    logo
+    name
+    status
+    legal {
+      registrationId
+      __typename
+    }
+    address {
+      city
+      line1
+      line2
+      __typename
+    }
+    users {
+      userId
+      status
+      role {
+        name
+        __typename
+      }
+      __typename
+    }
+    products {
+      slug
+      enabled
+      __typename
+    }
+    hasBranches
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getProjectReadmodels" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;getProjectReadmodels&quot;,&quot;variables&quot;:{&quot;where&quot;:{&quot;AND&quot;:[{},{&quot;OR&quot;:[{&quot;info_organisationId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},{&quot;info_contractorId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},{&quot;info_clientId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;}]}]}},&quot;query&quot;:&quot;query getProjectReadmodels($where: JSON, $first: Int, $skip: Int, $sort: [String], $caseSensitive: Boolean) {\n  projectReadmodels(\n    where: $where\n    first: $first\n    skip: $skip\n    sort: $sort\n    caseSensitive: $caseSensitive\n  ) {\n    projectId\n    info {\n      name\n      clientProjectName\n      contractorProjectName\n      clientId\n      contractorId\n      status\n      clientStatus\n      contractorStatus\n      referenceLetterDocuments\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">getProjectReadmodels</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query getProjectReadmodels($where: JSON, $first: Int, $skip: Int, $sort: [String], $caseSensitive: Boolean) {
+  projectReadmodels(
+    where: $where
+    first: $first
+    skip: $skip
+    sort: $sort
+    caseSensitive: $caseSensitive
+  ) {
+    projectId
+    info {
+      name
+      clientProjectName
+      contractorProjectName
+      clientId
+      contractorId
+      status
+      clientStatus
+      contractorStatus
+      referenceLetterDocuments
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;where&quot;:{&quot;AND&quot;:[{},{&quot;OR&quot;:[{&quot;info_organisationId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},{&quot;info_contractorId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},{&quot;info_clientId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;}]}]}}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Indicators" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;Indicators&quot;,&quot;variables&quot;:{&quot;where&quot;:{&quot;id__in&quot;:[]}},&quot;query&quot;:&quot;query Indicators($first: Int, $skip: Int, $where: JSON, $sort: String) {\n  indicators(first: $first, skip: $skip, where: $where, sort: [$sort]) {\n    id\n    name\n    description\n    isMaster\n    masterId\n    answerType\n    displayType\n    labelIds\n    type\n    labels {\n      id\n      name\n      __typename\n    }\n    answerValues {\n      value\n      label\n      __typename\n    }\n    unit\n    status\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">Indicators</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query Indicators($first: Int, $skip: Int, $where: JSON, $sort: String) {
+  indicators(first: $first, skip: $skip, where: $where, sort: [$sort]) {
+    id
+    name
+    description
+    isMaster
+    masterId
+    answerType
+    displayType
+    labelIds
+    type
+    labels {
+      id
+      name
+      __typename
+    }
+    answerValues {
+      value
+      label
+      __typename
+    }
+    unit
+    status
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;where&quot;:{&quot;id__in&quot;:[]}}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Organisations" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;Organisations&quot;,&quot;variables&quot;:{&quot;where&quot;:{&quot;AND&quot;:[{},{&quot;type&quot;:&quot;main&quot;},{&quot;id__in&quot;:[&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;,&quot;c7cb0d6a-533a-4cee-9eee-efd66a49ea8c&quot;,&quot;77ed75fc-233c-485a-9f48-157fcbbb9a70&quot;]}]},&quot;first&quot;:20,&quot;sort&quot;:[&quot;name__DESC&quot;],&quot;caseSensitive&quot;:false},&quot;query&quot;:&quot;query Organisations($first: Int, $skip: Int, $where: JSON, $sort: [String], $caseSensitive: Boolean) {\n  organisations(\n    first: $first\n    skip: $skip\n    where: $where\n    sort: $sort\n    caseSensitive: $caseSensitive\n  ) {\n    id\n    name\n    logo\n    type\n    status\n    legal {\n      registrationId\n      __typename\n    }\n    settings {\n      login {\n        twofactor\n        __typename\n      }\n      __typename\n    }\n    products {\n      slug\n      enabled\n      __typename\n    }\n    childs {\n      address {\n        city\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">Organisations</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query Organisations($first: Int, $skip: Int, $where: JSON, $sort: [String], $caseSensitive: Boolean) {
+  organisations(
+    first: $first
+    skip: $skip
+    where: $where
+    sort: $sort
+    caseSensitive: $caseSensitive
+  ) {
+    id
+    name
+    logo
+    type
+    status
+    legal {
+      registrationId
+      __typename
+    }
+    settings {
+      login {
+        twofactor
+        __typename
+      }
+      __typename
+    }
+    products {
+      slug
+      enabled
+      __typename
+    }
+    childs {
+      address {
+        city
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;where&quot;:{&quot;AND&quot;:[{},{&quot;type&quot;:&quot;main&quot;},{&quot;id__in&quot;:[&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;,&quot;c7cb0d6a-533a-4cee-9eee-efd66a49ea8c&quot;,&quot;77ed75fc-233c-485a-9f48-157fcbbb9a70&quot;]}]},&quot;first&quot;:20,&quot;sort&quot;:[&quot;name__DESC&quot;],&quot;caseSensitive&quot;:false}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getProjectReadmodels" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;getProjectReadmodels&quot;,&quot;variables&quot;:{&quot;where&quot;:{&quot;AND&quot;:[{},{&quot;OR&quot;:[{&quot;info_organisationId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},{&quot;info_contractorId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},{&quot;info_clientId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;}]}]},&quot;sort&quot;:[],&quot;first&quot;:10,&quot;skip&quot;:0,&quot;caseSensitive&quot;:false},&quot;query&quot;:&quot;query getProjectReadmodels($where: JSON, $first: Int, $skip: Int, $sort: [String], $caseSensitive: Boolean) {\n  projectReadmodels(\n    where: $where\n    first: $first\n    skip: $skip\n    sort: $sort\n    caseSensitive: $caseSensitive\n  ) {\n    id\n    projectId\n    info {\n      clientId\n      contractorId\n      name\n      clientProjectName\n      contractorProjectName\n      status\n      clientStatus\n      contractorStatus\n      usesCrowFlow\n      private\n      members {\n        userId\n        user {\n          firstName\n          lastName\n          __typename\n        }\n        status\n        __typename\n      }\n      creationDate\n      organisationId\n      referenceLetterDocuments\n      __typename\n    }\n    forms {\n      formId\n      components {\n        componentId\n        indicatorId\n        masterIndicatorId\n        responses {\n          value\n          displayValue\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    project {\n      client {\n        id\n        name\n        __typename\n      }\n      contractor {\n        id\n        name\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">getProjectReadmodels</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query getProjectReadmodels($where: JSON, $first: Int, $skip: Int, $sort: [String], $caseSensitive: Boolean) {
+  projectReadmodels(
+    where: $where
+    first: $first
+    skip: $skip
+    sort: $sort
+    caseSensitive: $caseSensitive
+  ) {
+    id
+    projectId
+    info {
+      clientId
+      contractorId
+      name
+      clientProjectName
+      contractorProjectName
+      status
+      clientStatus
+      contractorStatus
+      usesCrowFlow
+      private
+      members {
+        userId
+        user {
+          firstName
+          lastName
+          __typename
+        }
+        status
+        __typename
+      }
+      creationDate
+      organisationId
+      referenceLetterDocuments
+      __typename
+    }
+    forms {
+      formId
+      components {
+        componentId
+        indicatorId
+        masterIndicatorId
+        responses {
+          value
+          displayValue
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    project {
+      client {
+        id
+        name
+        __typename
+      }
+      contractor {
+        id
+        name
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;where&quot;:{&quot;AND&quot;:[{},{&quot;OR&quot;:[{&quot;info_organisationId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},{&quot;info_contractorId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;},{&quot;info_clientId&quot;:&quot;721f0e7b-bc0f-46a5-abca-1dcf20281df4&quot;}]}]},&quot;sort&quot;:[],&quot;first&quot;:10,&quot;skip&quot;:0,&quot;caseSensitive&quot;:false}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="VendorList" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistComments" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;VendorlistComments&quot;,&quot;variables&quot;:{},&quot;query&quot;:&quot;query VendorlistComments {\n  vendorlist_comments {\n    id\n    userId\n    branchId\n    clientId\n    organisationId\n    organisationName\n    vendorlistId\n    actionType\n    content\n    checked\n    timestamp\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">VendorlistComments</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query VendorlistComments {
+  vendorlist_comments {
+    id
+    userId
+    branchId
+    clientId
+    organisationId
+    organisationName
+    vendorlistId
+    actionType
+    content
+    checked
+    timestamp
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClients" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;VendorlistGetClients&quot;,&quot;variables&quot;:{&quot;branchIds&quot;:[&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;]},&quot;query&quot;:&quot;query VendorlistGetClients($branchIds: [String!]!) {\n  vendorlist_getClients(branchIds: $branchIds) {\n    clientId\n    status\n    client {\n      id\n      name\n      __typename\n    }\n    name\n    isPublic\n    isLegacy\n    subscriptions {\n      vendorlistId\n      status\n      branchId\n      statusChanges {\n        userId\n        vendorlistId\n        comment\n        branchId\n        clientId\n        timestamp\n        userType\n        clientName\n        contractorName\n        type\n        oldStatus\n        newStatus\n        userName\n        __typename\n      }\n      __typename\n    }\n    statusChanges {\n      userId\n      vendorlistId\n      comment\n      branchId\n      clientId\n      timestamp\n      userType\n      clientName\n      contractorName\n      type\n      oldStatus\n      newStatus\n      userName\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">VendorlistGetClients</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query VendorlistGetClients($branchIds: [String!]!) {
+  vendorlist_getClients(branchIds: $branchIds) {
+    clientId
+    status
+    client {
+      id
+      name
+      __typename
+    }
+    name
+    isPublic
+    isLegacy
+    subscriptions {
+      vendorlistId
+      status
+      branchId
+      statusChanges {
+        userId
+        vendorlistId
+        comment
+        branchId
+        clientId
+        timestamp
+        userType
+        clientName
+        contractorName
+        type
+        oldStatus
+        newStatus
+        userName
+        __typename
+      }
+      __typename
+    }
+    statusChanges {
+      userId
+      vendorlistId
+      comment
+      branchId
+      clientId
+      timestamp
+      userType
+      clientName
+      contractorName
+      type
+      oldStatus
+      newStatus
+      userName
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;branchIds&quot;:[&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;]}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistInvites" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;VendorlistInvites&quot;,&quot;variables&quot;:{},&quot;query&quot;:&quot;query VendorlistInvites {\n  vendorlist_invites {\n    clientId\n    clientName\n    vendorlistId\n    vendorlistName\n    branchId\n    timestamp\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">VendorlistInvites</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query VendorlistInvites {
+  vendorlist_invites {
+    clientId
+    clientName
+    vendorlistId
+    vendorlistName
+    branchId
+    timestamp
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="DocumentsExpiring" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;DocumentsExpiring&quot;,&quot;variables&quot;:{},&quot;query&quot;:&quot;query DocumentsExpiring {\n  documents_expiring {\n    expired {\n      id\n      clientId\n      clientName\n      documentName\n      expirationDate\n      branchId\n      __typename\n    }\n    almostExpired {\n      id\n      clientId\n      clientName\n      documentName\n      expirationDate\n      branchId\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">DocumentsExpiring</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query DocumentsExpiring {
+  documents_expiring {
+    expired {
+      id
+      clientId
+      clientName
+      documentName
+      expirationDate
+      branchId
+      __typename
+    }
+    almostExpired {
+      id
+      clientId
+      clientName
+      documentName
+      expirationDate
+      branchId
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="GetEOIRequests" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;GetEOIRequests&quot;,&quot;variables&quot;:{&quot;branchIds&quot;:[&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;]},&quot;query&quot;:&quot;query GetEOIRequests($branchIds: [String!], $first: Int, $skip: Int) {\n  eoi_requests(branchIds: $branchIds, first: $first, skip: $skip) {\n    id\n    status\n    deadlineDate\n    attachments\n    branchId\n    client {\n      name\n      __typename\n    }\n    branch {\n      id\n      name\n      address {\n        line1\n        zip\n        city\n        country\n        __typename\n      }\n      __typename\n    }\n    project {\n      name\n      __typename\n    }\n    vendorlists {\n      name\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">GetEOIRequests</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query GetEOIRequests($branchIds: [String!], $first: Int, $skip: Int) {
+  eoi_requests(branchIds: $branchIds, first: $first, skip: $skip) {
+    id
+    status
+    deadlineDate
+    attachments
+    branchId
+    client {
+      name
+      __typename
+    }
+    branch {
+      id
+      name
+      address {
+        line1
+        zip
+        city
+        country
+        __typename
+      }
+      __typename
+    }
+    project {
+      name
+      __typename
+    }
+    vendorlists {
+      name
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;branchIds&quot;:[&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;]}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="VendorListRegister" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClientLabels" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;VendorlistGetClientLabels&quot;,&quot;variables&quot;:{&quot;clientId&quot;:&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;,&quot;branchId&quot;:&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;},&quot;query&quot;:&quot;query VendorlistGetClientLabels($clientId: String!, $branchId: String!) {\n  vendorlist_getClientLabels(clientId: $clientId, branchId: $branchId) {\n    labels\n    answers\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">VendorlistGetClientLabels</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query VendorlistGetClientLabels($clientId: String!, $branchId: String!) {
+  vendorlist_getClientLabels(clientId: $clientId, branchId: $branchId) {
+    labels
+    answers
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;clientId&quot;:&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;,&quot;branchId&quot;:&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=0</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistContactInfo" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;VendorlistContactInfo&quot;,&quot;variables&quot;:{&quot;clientId&quot;:&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;,&quot;branchId&quot;:&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;},&quot;query&quot;:&quot;query VendorlistContactInfo($branchId: String!, $clientId: String!) {\n  vendorlist_contactInfo(branchId: $branchId, clientId: $clientId) {\n    email\n    phoneNumber\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">VendorlistContactInfo</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query VendorlistContactInfo($branchId: String!, $clientId: String!) {
+  vendorlist_contactInfo(branchId: $branchId, clientId: $clientId) {
+    email
+    phoneNumber
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;clientId&quot;:&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;,&quot;branchId&quot;:&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=0</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClientBasic" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;VendorlistGetClientBasic&quot;,&quot;variables&quot;:{&quot;clientId&quot;:&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;},&quot;query&quot;:&quot;query VendorlistGetClientBasic($clientId: String!) {\n  vendorlist_getClient(clientId: $clientId) {\n    name\n    clientId\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">VendorlistGetClientBasic</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query VendorlistGetClientBasic($clientId: String!) {
+  vendorlist_getClient(clientId: $clientId) {
+    name
+    clientId
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;clientId&quot;:&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClient" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;VendorlistGetClient&quot;,&quot;variables&quot;:{&quot;clientId&quot;:&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;,&quot;branchId&quot;:&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;},&quot;query&quot;:&quot;query VendorlistGetClient($clientId: String!, $branchId: String) {\n  vendorlist_getClient(clientId: $clientId, branchId: $branchId) {\n    name\n    status\n    clientId\n    isLegacy\n    isPublic\n    companyReviewScore {\n      totalScore\n      categories {\n        title\n        projects {\n          name\n          score\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    statusChanges {\n      userId\n      vendorlistId\n      comment\n      branchId\n      clientId\n      timestamp\n      userType\n      clientName\n      contractorName\n      type\n      oldStatus\n      newStatus\n      userName\n      __typename\n    }\n    customDescriptions {\n      title\n      description\n      type\n      attachmentUrl\n      __typename\n    }\n    subscriptions {\n      vendorlistId\n      branchId\n      status\n      areasOfInterestChoice {\n        id\n        referenceAmount\n        __typename\n      }\n      statusChanges {\n        userId\n        vendorlistId\n        comment\n        branchId\n        clientId\n        timestamp\n        userType\n        clientName\n        contractorName\n        type\n        oldStatus\n        newStatus\n        userName\n        __typename\n      }\n      __typename\n    }\n    documentTemplates {\n      hasReferenceAmount\n      templateName\n      templateId\n      vendorlistId\n      type\n      description\n      customDocumentsAllowed\n      documents {\n        fileName\n        documentId\n        documentName\n        hasFile\n        referenceAmount\n        expirationDate\n        maxDays\n        skillId\n        uploadDate\n        hasReferenceAmount\n        customDocument\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">VendorlistGetClient</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query VendorlistGetClient($clientId: String!, $branchId: String) {
+  vendorlist_getClient(clientId: $clientId, branchId: $branchId) {
+    name
+    status
+    clientId
+    isLegacy
+    isPublic
+    companyReviewScore {
+      totalScore
+      categories {
+        title
+        projects {
+          name
+          score
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    statusChanges {
+      userId
+      vendorlistId
+      comment
+      branchId
+      clientId
+      timestamp
+      userType
+      clientName
+      contractorName
+      type
+      oldStatus
+      newStatus
+      userName
+      __typename
+    }
+    customDescriptions {
+      title
+      description
+      type
+      attachmentUrl
+      __typename
+    }
+    subscriptions {
+      vendorlistId
+      branchId
+      status
+      areasOfInterestChoice {
+        id
+        referenceAmount
+        __typename
+      }
+      statusChanges {
+        userId
+        vendorlistId
+        comment
+        branchId
+        clientId
+        timestamp
+        userType
+        clientName
+        contractorName
+        type
+        oldStatus
+        newStatus
+        userName
+        __typename
+      }
+      __typename
+    }
+    documentTemplates {
+      hasReferenceAmount
+      templateName
+      templateId
+      vendorlistId
+      type
+      description
+      customDocumentsAllowed
+      documents {
+        fileName
+        documentId
+        documentName
+        hasFile
+        referenceAmount
+        expirationDate
+        maxDays
+        skillId
+        uploadDate
+        hasReferenceAmount
+        customDocument
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;clientId&quot;:&quot;b6fd8bf0-2a72-47f0-80c3-d45a986128f0&quot;,&quot;branchId&quot;:&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetVendorlists" enabled="true">
+              <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/graphql</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument" enabled="true">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;operationName&quot;:&quot;VendorlistGetVendorlists&quot;,&quot;variables&quot;:{&quot;branchIds&quot;:[&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;]},&quot;query&quot;:&quot;query VendorlistGetVendorlists($branchIds: [String!]!) {\n  vendorlists(branchIds: $branchIds) {\n    name\n    clientId\n    id\n    documentTemplate {\n      templateId\n      templateName\n      type\n      vendorlistId\n      documentName\n      description\n      maxDays\n      hasReferenceAmount\n      __typename\n    }\n    subscription {\n      vendorlistId\n      branchId\n      status\n      areasOfInterestChoice {\n        id\n        referenceAmount\n        __typename\n      }\n      statusChanges {\n        userId\n        vendorlistId\n        comment\n        branchId\n        clientId\n        timestamp\n        userType\n        clientName\n        contractorName\n        type\n        oldStatus\n        newStatus\n        userName\n        __typename\n      }\n      __typename\n    }\n    areasOfInterest {\n      id\n      name\n      __typename\n    }\n    __typename\n  }\n}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="GraphQLHTTPSampler.operationName">VendorlistGetVendorlists</stringProp>
+              <stringProp name="GraphQLHTTPSampler.query">query VendorlistGetVendorlists($branchIds: [String!]!) {
+  vendorlists(branchIds: $branchIds) {
+    name
+    clientId
+    id
+    documentTemplate {
+      templateId
+      templateName
+      type
+      vendorlistId
+      documentName
+      description
+      maxDays
+      hasReferenceAmount
+      __typename
+    }
+    subscription {
+      vendorlistId
+      branchId
+      status
+      areasOfInterestChoice {
+        id
+        referenceAmount
+        __typename
+      }
+      statusChanges {
+        userId
+        vendorlistId
+        comment
+        branchId
+        clientId
+        timestamp
+        userType
+        clientName
+        contractorName
+        type
+        oldStatus
+        newStatus
+        userName
+        __typename
+      }
+      __typename
+    }
+    areasOfInterest {
+      id
+      name
+      __typename
+    }
+    __typename
+  }
+}
+</stringProp>
+              <stringProp name="GraphQLHTTPSampler.variables">{&quot;branchIds&quot;:[&quot;98dda4e4-6e20-4f00-b0d2-3e466872cff8&quot;]}</stringProp>
+              <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${host}</stringProp>
+                  </elementProp>
+                  <elementProp name="Priority" elementType="Header">
+                    <stringProp name="Header.name">Priority</stringProp>
+                    <stringProp name="Header.value">u=4</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                  </elementProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br, zstd</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">data/csvOutput.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
