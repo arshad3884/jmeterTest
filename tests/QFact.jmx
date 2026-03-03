@@ -38,8 +38,8 @@
       </CookieManager>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
-        <intProp name="ThreadGroup.num_threads">1</intProp>
-        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <intProp name="ThreadGroup.num_threads">100</intProp>
+        <intProp name="ThreadGroup.ramp_time">150</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -479,7 +479,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getProjectsMinimal" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getProjectsMinimal">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -525,7 +525,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -553,7 +553,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -575,7 +575,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="OrganisationUsersMinimal" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="OrganisationUsersMinimal">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -626,7 +626,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -654,7 +654,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -676,7 +676,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Reports" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Reports">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -739,7 +739,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -767,7 +767,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -789,7 +789,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="org_mine" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="org_mine">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -850,7 +850,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -878,7 +878,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -900,7 +900,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getProjectReadmodels" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getProjectReadmodels">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -950,7 +950,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -978,7 +978,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1000,7 +1000,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Indicators" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Indicators">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1052,7 +1052,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1080,7 +1080,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1102,7 +1102,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Organisations" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Organisations">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1167,7 +1167,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1195,7 +1195,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1217,7 +1217,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getProjectReadmodels" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="getProjectReadmodels">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1310,7 +1310,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1338,7 +1338,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1365,7 +1365,7 @@
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistComments" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistComments">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1407,7 +1407,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1435,7 +1435,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1457,7 +1457,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClients" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClients">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1536,7 +1536,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1564,7 +1564,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1586,7 +1586,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistInvites" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistInvites">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1623,7 +1623,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1651,7 +1651,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1673,7 +1673,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="DocumentsExpiring" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="DocumentsExpiring">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1722,7 +1722,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1750,7 +1750,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1772,7 +1772,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="GetEOIRequests" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="GetEOIRequests">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1832,7 +1832,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1860,7 +1860,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1887,7 +1887,7 @@
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClientLabels" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClientLabels">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -1920,7 +1920,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1948,7 +1948,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -1970,7 +1970,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistContactInfo" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistContactInfo">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -2003,7 +2003,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -2031,7 +2031,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -2053,7 +2053,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClientBasic" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClientBasic">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -2086,7 +2086,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -2114,7 +2114,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -2136,7 +2136,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClient" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetClient">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -2259,7 +2259,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -2287,7 +2287,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -2309,7 +2309,7 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetVendorlists" enabled="true">
+            <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="VendorlistGetVendorlists">
               <stringProp name="HTTPSampler.domain">api.test.qfact.nl</stringProp>
               <stringProp name="HTTPSampler.port">443</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
@@ -2386,7 +2386,7 @@
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="Sec-Fetch-Mode" elementType="Header">
                     <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -2414,7 +2414,7 @@
                   </elementProp>
                   <elementProp name="Authorization" elementType="Header">
                     <stringProp name="Header.name">Authorization</stringProp>
-                    <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NzI0Mzk4MDUuMjY5LCJleHAiOjE3NzI0NTQyMDUuMjY5LCJkYXRhIjp7InVzZXJJZCI6IjdkZDM1Zjg0LThmNDQtNGViYy1iMGFhLTcwYzk5YjAzMDBjOCIsImVtYWlsIjoidC50aW1tZXJAdGltbWVyLnFmYWN0IiwiaXNCYWNrb2ZmaWNlVXNlciI6ZmFsc2UsImF1dGhNZXRhIjp7ImNvbnRleHQiOiJvcmdhbmlzYXRpb24iLCJhcHBDb250ZXh0Ijp7InR5cGUiOiJxZmFjdCIsImhvc3QiOiJodHRwczovL2FwcC50ZXN0LnFmYWN0Lm5sIn0sIm9yZ2FuaXNhdGlvbklkIjoiNzIxZjBlN2ItYmMwZi00NmE1LWFiY2EtMWRjZjIwMjgxZGY0Iiwib3JnYW5pc2F0aW9uUHJvZHVjdHMiOlt7Im5hbWUiOiJPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImNvbnRyYWN0b3IiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiRU1WSSBPcGRyYWNodG5lbWVyIiwic2x1ZyI6ImVtdmlfY29udHJhY3RvciIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfSx7Im5hbWUiOiJQcmVzdGF0aWVkYXRhYmFuayBmdWxsIiwic2x1ZyI6InBkX2Z1bGwiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiUHJlc3RhdGllZGF0YWJhbmsgYmFzaXMiLCJzbHVnIjoicGRfYmFzaXMiLCJlbmFibGVkIjp0cnVlLCJtb2R1bGVzIjpbXX0seyJuYW1lIjoiU2luZ2xlIFNpZ24tT24gKFNBTUwpIiwic2x1ZyI6InNzbyIsImVuYWJsZWQiOnRydWUsIm1vZHVsZXMiOltdfV0sImJyYW5jaGVzIjpbeyJpZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsInJvbGVJZCI6ImFkbWluLWRlZmF1bHQifV0sImVtdmlPcmdhbmlzYXRpb25JZCI6Ijk4ZGRhNGU0LTZlMjAtNGYwMC1iMGQyLTNlNDY2ODcyY2ZmOCIsImNoaWxkT3JnYW5pc2F0aW9uSWRzIjpbXSwicm9sZUlkIjoiYnJhbmNoLWFkbWluLWRlZmF1bHQiLCJyb2xlTmFtZSI6IlZlc3RpZ2luZ3NtYW5hZ2VyIiwidHdvZmFjdG9yIjpmYWxzZSwic3NvIjpbXSwic3NvT3JnYW5pc2F0aW9uSWRzIjpbXSwic2x1ZyI6IiIsImFjY2Vzc1VzZXJJZCI6bnVsbH0sInBlcm1pc3Npb25zIjpbeyJ0eXBlIjoidXNlciIsInBlcm1pc3Npb24iOiIzNjFmY2YxYiJ9LHsidHlwZSI6InJvbGUiLCJwZXJtaXNzaW9uIjoiMTlmIn0seyJ0eXBlIjoib3JnYW5pc2F0aW9uIiwicGVybWlzc2lvbiI6IjNmYzAwMTNiY2UwMDNmYzdmODQxIn0seyJ0eXBlIjoibWFpbCIsInBlcm1pc3Npb24iOiI4NyJ9LHsidHlwZSI6ImluZGljYXRvciIsInBlcm1pc3Npb24iOiIzN2MwMDAwMWY3YiJ9LHsidHlwZSI6ImxhYmVsIiwicGVybWlzc2lvbiI6IjI4ZmIifSx7InR5cGUiOiJwcm9qZWN0IiwicGVybWlzc2lvbiI6IjExZjA4MGEwMTAwYWYzMWNmIn0seyJ0eXBlIjoiZm9ybSIsInBlcm1pc3Npb24iOiI5MjA4MDAwMWMwNzBmZiJ9LHsidHlwZSI6InZhbHVlIiwicGVybWlzc2lvbiI6IjdmZmZmIn0seyJ0eXBlIjoicHJvamVjdHRlbXBsYXRlIiwicGVybWlzc2lvbiI6IjFmZmYifSx7InR5cGUiOiJmb3JtdGVtcGxhdGUiLCJwZXJtaXNzaW9uIjoiM2ZmZmYifSx7InR5cGUiOiJhbmFseXNpcyIsInBlcm1pc3Npb24iOiIxIn0seyJ0eXBlIjoiZG9jdW1lbnQiLCJwZXJtaXNzaW9uIjoiZmZmN2ZmIn0seyJ0eXBlIjoidmVuZG9ybGlzdCIsInBlcm1pc3Npb24iOiI3ZmZmZmYifSx7InR5cGUiOiJyZXBvcnQiLCJwZXJtaXNzaW9uIjoiZmYwMWZmZiJ9LHsidHlwZSI6InJlc3BvbnNlIiwicGVybWlzc2lvbiI6IjM0ZiJ9LHsidHlwZSI6InJlZmVyZW5jZUxldHRlciIsInBlcm1pc3Npb24iOiI1NGZmIn0seyJ0eXBlIjoiZW9pIiwicGVybWlzc2lvbiI6ImYifV19fQ.TNjCrtMpnDT7mQJ6JUtLADQhDnn2OAARTtWfdybLEt4</stringProp>
+                    <stringProp name="Header.value">Bearer ${jwt_token}</stringProp>
                   </elementProp>
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
@@ -2472,44 +2472,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">C:\Users\amnae\OneDrive\Desktop\report.csv</stringProp>
-        </ResultCollector>
-        <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <url>true</url>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
+          <stringProp name="filename">data/csvOutput.</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
