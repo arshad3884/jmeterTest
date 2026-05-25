@@ -57,7 +57,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer">
+        <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="false">
           <stringProp name="ConstantTimer.delay">1000</stringProp>
           <stringProp name="RandomTimer.range">2000</stringProp>
         </UniformRandomTimer>
@@ -1085,7 +1085,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">C:\Users\amnae\OneDrive\Desktop\report_participate.csv</stringProp>
+        <stringProp name="filename">data/csvOutput.csv</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
