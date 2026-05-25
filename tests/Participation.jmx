@@ -47,8 +47,8 @@
       </CookieManager>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
-        <intProp name="ThreadGroup.num_threads">600</intProp>
-        <intProp name="ThreadGroup.ramp_time">110</intProp>
+        <intProp name="ThreadGroup.num_threads">100</intProp>
+        <intProp name="ThreadGroup.ramp_time">20</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
@@ -1085,7 +1085,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-        <stringProp name="filename">data/csvOutput.csv</stringProp>
+          <stringProp name="filename">C:\Users\amnae\OneDrive\Desktop\report_participate.csv</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
