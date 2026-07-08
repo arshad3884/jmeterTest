@@ -54,14 +54,14 @@
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="images\images (3).jpg" elementType="HTTPFileArg">
+              <elementProp name="images/images (3).jpg" elementType="HTTPFileArg">
                 <stringProp name="File.mimetype">image/jpeg</stringProp>
-                <stringProp name="File.path">images\images (3).jpg</stringProp>
+                <stringProp name="File.path">images/images (3).jpg</stringProp>
                 <stringProp name="File.paramname">projectLogo</stringProp>
               </elementProp>
-              <elementProp name="images\images.png" elementType="HTTPFileArg">
+              <elementProp name="images/images.png" elementType="HTTPFileArg">
                 <stringProp name="File.mimetype">image/jpeg</stringProp>
-                <stringProp name="File.path">images\images.png</stringProp>
+                <stringProp name="File.path">images/images.png</stringProp>
                 <stringProp name="File.paramname">contractorLogo</stringProp>
               </elementProp>
             </collectionProp>
