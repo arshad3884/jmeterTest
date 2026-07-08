@@ -10,7 +10,7 @@
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
-        <intProp name="ThreadGroup.num_threads">11</intProp>
+        <intProp name="ThreadGroup.num_threads">10</intProp>
         <intProp name="ThreadGroup.ramp_time">10</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -54,14 +54,14 @@
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="C:\Users\amnae\Downloads\images (3).jpg" elementType="HTTPFileArg">
+              <elementProp name="images\images (3).jpg" elementType="HTTPFileArg">
                 <stringProp name="File.mimetype">image/jpeg</stringProp>
-                <stringProp name="File.path">C:\Users\amnae\Downloads\images (3).jpg</stringProp>
+                <stringProp name="File.path">images\images (3).jpg</stringProp>
                 <stringProp name="File.paramname">projectLogo</stringProp>
               </elementProp>
-              <elementProp name="C:\Users\amnae\Downloads\images.png" elementType="HTTPFileArg">
+              <elementProp name="images\images.png" elementType="HTTPFileArg">
                 <stringProp name="File.mimetype">image/jpeg</stringProp>
-                <stringProp name="File.path">C:\Users\amnae\Downloads\images.png</stringProp>
+                <stringProp name="File.path">images\images.png</stringProp>
                 <stringProp name="File.paramname">contractorLogo</stringProp>
               </elementProp>
             </collectionProp>
